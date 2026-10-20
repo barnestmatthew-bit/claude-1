@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HandSculpt VR</title>
+  <style>
+    :root { color-scheme: dark; }
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #1c1f26; font: 13px/1.3 system-ui, sans-serif; color: #e8ebf2; }
+    #viewport { position: fixed; inset: 0; }
+    #toolbar { position: fixed; top: 10px; left: 10px; right: 10px; display: flex; flex-wrap: wrap; gap: 8px; pointer-events: none; }
+    #toolbar .group { display: flex; align-items: center; gap: 4px; padding: 5px 6px; background: rgba(20,22,28,.82); border-radius: 8px; pointer-events: auto; }
+    #toolbar .title { color: #8d97ad; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; margin: 0 4px; }
+    #toolbar button { border: 0; border-radius: 6px; padding: 5px 9px; background: #2b2f3a; color: inherit; font: inherit; cursor: pointer; }
+    #toolbar button:hover { background: #3d4352; }
+    #toolbar button.active { background: #4f7cff; }
+    #toolbar button.swatch { width: 22px; height: 22px; padding: 0; border: 2px solid transparent; }
+    #toolbar button.swatch.active { border-color: #fff; }
+    #help { position: fixed; left: 10px; bottom: 10px; max-width: 520px; color: #8d97ad; font-size: 12px; background: rgba(20,22,28,.7); padding: 8px 10px; border-radius: 8px; }
+    #toast { position: fixed; left: 50%; bottom: 70px; transform: translateX(-50%); background: rgba(20,22,28,.92); padding: 8px 14px; border-radius: 8px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+    #toast.show { opacity: 1; }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="viewport"></div>
+  <div id="toolbar"></div>
+  <div id="help">
+    <b>In VR</b> (hand tracking): pinch a shape on the shelf and drag it out · pinch a piece to move it, with both hands to scale ·
+    drop it in the red bin to delete · turn your left palm toward you for the menu.
+    <b>Sculpt:</b> touch clay with your fingertip, pinch to pull it.<br>
+    <b>Desktop:</b> drag to orbit · W/E/R move/rotate/scale · Tab build/sculpt · drag on clay to sculpt, Shift+drag to pull · Ctrl+S export.
+  </div>
+  <div id="toast"></div>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

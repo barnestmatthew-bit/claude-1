@@ -1,0 +1,15 @@
+{
+  "name": "handsculpt-vr",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hand-tracked VR modeling and sculpting in the browser (WebXR), with export to Blender.",
+  "type": "module",
+  "scripts": {
+    "start": "python3 server/serve.py",
+    "start:https": "python3 server/serve.py --https",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "three": "0.170.0"
+  }
+}
